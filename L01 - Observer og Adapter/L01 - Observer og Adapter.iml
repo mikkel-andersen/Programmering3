@@ -7,8 +7,5 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="javafx-swt" level="application" />
-    <orderEntry type="library" name="Mockito" level="application" />
-    <orderEntry type="library" name="sqljdbc4" level="application" />
   </component>
 </module>
