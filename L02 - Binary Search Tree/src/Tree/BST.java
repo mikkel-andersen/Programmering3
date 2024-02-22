@@ -217,6 +217,18 @@ public class BST<E> implements Tree<E> {
         }
     }
 
+    public int sum(){
+        return sum(root);
+    }
+
+    public int sum(TreeNode<E> root){
+        if (root == null) {
+            return 0;
+        } else {
+            return (Integer) root.element + sum(root.left) + sum(root.right);
+        }
+    }
+
 
     @Override
     /** Delete an element from the binary tree.
