@@ -18,12 +18,20 @@ public class BinarySearchTreeNode {
         bst.insert(4);
         bst.insert(6);
         bst.insert(8);
-        bst.printInOrder();
         System.out.println("Min: " + bst.findMin());
         System.out.println("Max: " + bst.findMax());
         System.out.println("Height: " + bst.height());
-        bst.printPreOrder();
         System.out.println("Contains 6: " + bst.contains(6));
+        System.out.println("Depth of 6: " + bst.depth(6));
+        System.out.println("-----------");
+        System.out.println("InOrder");
+        bst.printInOrder();
+        System.out.println("-----------");
+        System.out.println("PreOrder");
+        bst.printPreOrder();
+        System.out.println("-----------");
+        System.out.println("PostOrder");
+        bst.printPostOrder();
     }
 
     public void insert(int value) {
@@ -38,6 +46,20 @@ public class BinarySearchTreeNode {
                 right = new BinarySearchTreeNode(value);
             } else {
                 right.insert(value);
+            }
+        }
+    }
+
+    public void delete(int value) {
+        if (value == this.value) {
+            // TODO
+        } else if (value < this.value) {
+            if (left != null) {
+                left.delete(value);
+            }
+        } else {
+            if (right != null) {
+                right.delete(value);
             }
         }
     }
@@ -60,6 +82,7 @@ public class BinarySearchTreeNode {
         }
     }
 
+    // InOrder: Left, Root, Right
     public void printInOrder() {
         if (left != null) {
             left.printInOrder();
@@ -70,6 +93,7 @@ public class BinarySearchTreeNode {
         }
     }
 
+    // PreOrder: Root, Left, Right
     public void printPreOrder() {
         System.out.println(value);
         if (left != null) {
@@ -80,6 +104,7 @@ public class BinarySearchTreeNode {
         }
     }
 
+    // PostOrder: Left, Right, Root
     public void printPostOrder() {
         if (left != null) {
             left.printPostOrder();
@@ -117,4 +142,33 @@ public class BinarySearchTreeNode {
             return 1 + Math.max(left.height(), right.height());
         }
     }
+
+    public int depth(int value) {
+        if (value == this.value) {
+            return 0;
+        } else if (value < this.value) {
+            if (left == null) {
+                return -1;
+            } else {
+                int d = left.depth(value);
+                if (d == -1) {
+                    return -1;
+                } else {
+                    return 1 + d;
+                }
+            }
+        } else {
+            if (right == null) {
+                return -1;
+            } else {
+                int d = right.depth(value);
+                if (d == -1) {
+                    return -1;
+                } else {
+                    return 1 + d;
+                }
+            }
+        }
+    }
+
 }
