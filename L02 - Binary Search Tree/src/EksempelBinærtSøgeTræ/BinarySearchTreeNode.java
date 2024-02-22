@@ -11,18 +11,21 @@ public class BinarySearchTreeNode {
     }
 
     public static void main(String[] args) {
-        BinarySearchTreeNode bst = new BinarySearchTreeNode(5);
-        bst.insert(3);
-        bst.insert(7);
-        bst.insert(2);
-        bst.insert(4);
-        bst.insert(6);
-        bst.insert(8);
+        BinarySearchTreeNode bst = new BinarySearchTreeNode(45);
+        bst.insert(30);
+        bst.insert(77);
+        bst.insert(22);
+        bst.insert(90);
+        bst.insert(11);
+        bst.insert(88);
+        bst.insert(15);
+        bst.insert(25);
+
         System.out.println("Min: " + bst.findMin());
         System.out.println("Max: " + bst.findMax());
         System.out.println("Height: " + bst.height());
-        System.out.println("Contains 6: " + bst.contains(6));
-        System.out.println("Depth of 6: " + bst.depth(6));
+        System.out.println("Contains 6: " + bst.contains(90));
+        System.out.println("Depth of 6: " + bst.depth(88));
         System.out.println("-----------");
         System.out.println("InOrder");
         bst.printInOrder();
