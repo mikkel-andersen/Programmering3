@@ -11,8 +11,7 @@ Dictionary<K, V> {
 
 	@Override
 	public V get(K key) {
-		// TODO
-		return null;
+		return (V) find(key);
 
 	}
 
@@ -45,7 +44,9 @@ Dictionary<K, V> {
 
 	@Override
 	public V put(K key, V value) {
-		// TODO
+		if (root == null) {
+
+		}
 		return null;
 
 	}
