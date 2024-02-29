@@ -171,21 +171,7 @@ public class BST<E> implements Tree<E> {
     }
 
     public boolean isInternal(E e) {
-        TreeNode<E> current = root;
-        while (current != null) {
-            if (c.compare(e, current.element) < 0) {
-                current = current.left;
-            } else if (c.compare(e, current.element) > 0) {
-                current = current.right;
-            } else {
-                if (current.left != null || current.right != null) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        }
-        return false;
+        return !isLeaf(e);
     }
 
     //-------------------------------------------------------------------
@@ -216,6 +202,21 @@ public class BST<E> implements Tree<E> {
             return 1 + Math.max(height(root.left), height(root.right));
         }
     }
+
+    public E removeMin() {
+        if (root == null) {
+            return null;
+        }
+        TreeNode<E> current = root;
+        while (current.left != null) {
+            current = current.left;
+        }
+
+
+        return current.element;
+    }
+
+
 
     public int sum(){
         return sum(root);

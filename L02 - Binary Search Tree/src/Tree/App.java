@@ -31,6 +31,9 @@ public class App {
         System.out.println("findMax: " + tree.findMax());
         System.out.println("findMin: " + tree.findMin());
 
+        System.out.println("------");
+        System.out.println("Sum: " + tree.sum());
+
 
 
 
