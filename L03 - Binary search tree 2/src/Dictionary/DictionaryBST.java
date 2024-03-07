@@ -22,7 +22,7 @@ Dictionary<K, V> {
 			int d = current.key.compareTo(key);
 			if (d == 0) {
 				found = true;
-			} else if (d > 0) {
+			} else if (d < 0) {
 				current = current.left;
 			} else {
 				current = current.right;

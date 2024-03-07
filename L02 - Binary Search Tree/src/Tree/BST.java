@@ -1,5 +1,7 @@
 package Tree;
 
+import java.util.ArrayList;
+
 public class BST<E> implements Tree<E> {
     protected TreeNode<E> root;
     protected int size = 0;
@@ -125,6 +127,7 @@ public class BST<E> implements Tree<E> {
     }
 
 
+
     /**
      * This inner class is static, because it does not access
      * any instance members defined in its outer class
@@ -207,13 +210,70 @@ public class BST<E> implements Tree<E> {
         if (root == null) {
             return null;
         }
+
+        TreeNode<E> parent = null;
         TreeNode<E> current = root;
+
+        // Find the leftmost node
         while (current.left != null) {
+            parent = current;
             current = current.left;
         }
 
+        // If parent is null, the root is the minimum
+        if (parent == null) {
+            root = root.right;
+        } else {
+            parent.left = current.right;
+        }
+
+        // Decrease the size of the tree
+        size--;
 
         return current.element;
+    }
+
+    public E removeMax() {
+        if (root == null) {
+            return null;
+        }
+
+        TreeNode<E> parent = null;
+        TreeNode<E> current = root;
+
+        // Find the leftmost node
+        while (current.right != null) {
+            parent = current;
+            current = current.right;
+        }
+
+        // If parent is null, the root is the minimum
+        if (parent == null) {
+            root = root.right;
+        } else {
+            parent.right = current.left;
+        }
+
+        // Decrease the size of the tree
+        size--;
+
+        return current.element;
+    }
+
+    public ArrayList<E> greaterThan(E element) {
+        ArrayList<E> result = new ArrayList<>();
+        greaterThan(root, element, result);
+        return result;
+    }
+
+    private void greaterThan(TreeNode<E> node, E element, ArrayList<E> result) {
+        if (node != null) {
+            greaterThan(node.left, element, result);
+            if (c.compare(node.element, element) > 0) {
+                result.add(node.element);
+            }
+            greaterThan(node.right, element, result);
+        }
     }
 
 

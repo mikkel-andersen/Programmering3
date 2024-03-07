@@ -34,6 +34,15 @@ public class App {
         System.out.println("------");
         System.out.println("Sum: " + tree.sum());
 
+        System.out.println();
+        System.out.println("-------");
+        System.out.println(tree.removeMin());
+        System.out.println("-------");
+        System.out.println(tree.removeMax());
+        System.out.println("-------");
+        System.out.println(tree.greaterThan(30));
+
+
 
 
 
