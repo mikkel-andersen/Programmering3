@@ -71,7 +71,7 @@ public class EdgeListGraph<V extends Comparable<V>> implements Graph<V> {
     for (Edge e: edges){
       if (e.u == index){
         result.add(e.v);
-      }else if(e.v== index){
+      } else if(e.v== index){
         result.add(e.u);
       }
     }
@@ -85,7 +85,7 @@ public class EdgeListGraph<V extends Comparable<V>> implements Graph<V> {
     for (Edge e: edges){
       if (e.u == index){
         result.add(e);
-      }else if(e.v== index){
+      } else if(e.v == index){
         result.add(e);
       }
     }

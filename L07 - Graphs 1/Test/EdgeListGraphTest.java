@@ -28,6 +28,7 @@ class EdgeListGraphTest {
         int expected = 123;
         int actual = graph.getMaxVertex();
 
+
         // Assert
         assertEquals(expected, actual);
     }
@@ -63,6 +64,7 @@ class EdgeListGraphTest {
         }
         assertFalse(graph.remove(38));
     }
+
 
     @Test
     void test_remove_edge() {
