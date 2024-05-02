@@ -52,15 +52,22 @@ public class GraphAlgortihms {
      * Pre: Grafen er ikke tom
      */
     public static <V> boolean connected(Graph<V> graph) {
-        // TODO Opgave 4
-        return false;
+        if (graph.getSize() == 0) {
+            return true; // An empty graph is considered connected
+        }
+
+        V startVertex = graph.getVertex(0); // Start from the first vertex
+        List<V> visited = dfs(graph, startVertex); // Perform DFS from the start vertex
+
+        // If the number of visited vertices is equal to the total number of vertices, the graph is connected
+        return visited.size() == graph.getSize();
     }
 
     /**
      * Returnerer om der er en vej fra v1 til v2 i graph
      */
-    public static <V> boolean isPath(Graph<V> graph, V v1, V v2) {
-        // TODO Opgave 5
-        return false;
-    }
+   public static <V> boolean isPath(Graph<V> graph, V v1, V v2) {
+    List<V> visited = dfs(graph, v1); // Perform DFS from the start vertex v1
+    return visited.contains(v2); // If v2 is in the visited list, then there is a path from v1 to v2
+}
 }

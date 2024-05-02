@@ -1,7 +1,9 @@
 import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class GraphAlgortihmsTest {
@@ -68,13 +70,66 @@ class GraphAlgortihmsTest {
 
     @Test
     void test_connected() {
-        // TODO Opgave 4
-        fail();
+        // Arrange & Act
+        Graph<Integer> graph = new EdgeListGraph<>();
+        graph.addVertex(15);  // 0
+        graph.addVertex(38);  // 1
+        graph.addVertex(6);   //2
+        graph.addVertex(123);  // 3
+        graph.addVertex(66);  // 4
+        graph.addEdge(2, 3, 7);
+        graph.addEdge(2, 4, 8);
+        graph.addEdge(4, 3, 76);
+        graph.addEdge(0, 1, 10);
+        graph.addEdge(0, 2, 23);
+        graph.addEdge(0, 4, 90);
+        graph.addEdge(1, 4, 2);
+        graph.addEdge(1, 3, 55);
+
+        //Assert
+        assertTrue(GraphAlgortihms.connected(graph));
     }
 
     @Test
+    void test_disconnected() {
+        Graph<Integer> graph2 = new EdgeListGraph<>();
+        graph2.addVertex(1);
+        graph2.addVertex(2);
+        graph2.addVertex(3);
+        graph2.addEdge(1, 2);
+        assertFalse(GraphAlgortihms.connected(graph2));
+    }
+
+
+    @Test
     void test_isPath() {
-        // TODO Opgave 5
-        fail();
+        // Test with a graph where there is a path between two vertices
+        Graph<Integer> graph = new EdgeListGraph<>();
+        graph.addVertex(15);  // 0
+        graph.addVertex(38);  // 1
+        graph.addVertex(6);   //2
+        graph.addVertex(123);  // 3
+        graph.addVertex(66);  // 4
+        graph.addEdge(2, 3, 7);
+        graph.addEdge(2, 4, 8);
+        graph.addEdge(4, 3, 76);
+        graph.addEdge(0, 1, 10);
+        graph.addEdge(0, 2, 23);
+        graph.addEdge(0, 4, 90);
+        graph.addEdge(1, 4, 2);
+        graph.addEdge(1, 3, 55);
+        assertTrue(GraphAlgortihms.isPath(graph, 15, 6));
+
+    }
+
+    @Test
+    void test_isPath2() {
+        // Test with a graph where there is no path between two vertices
+        Graph<Integer> graph2 = new EdgeListGraph<>();
+        graph2.addVertex(1);
+        graph2.addVertex(2);
+        graph2.addVertex(3);
+        graph2.addEdge(1, 2);
+        assertFalse(GraphAlgortihms.isPath(graph2, 1, 3));
     }
 }
