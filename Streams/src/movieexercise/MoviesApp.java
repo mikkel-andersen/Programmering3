@@ -60,19 +60,52 @@ public class MoviesApp {
                 .forEach(System.out::println);
 
         // The number of films where the director is also an actor
-        // TODO Opgave
+        System.out.println("");
+        System.out.println("Opgave 3");
+        System.out.println("Number of films where the director is also an actor: ");
+        long count = movieList.stream()
+                .filter(e -> !Collections.disjoint(e.getActors(), e.getDirectors()))
+                .count();
+        System.out.println(count);
 
         //The number of actors in the film with the most actors
-        // TODO Opgave
+
+        System.out.println("");
+        System.out.println("Opgave 4");
+        int maxActors = movieList.stream()
+                .mapToInt(e -> e.getActors().size())
+                .max()
+                .orElse(0);
+
+        System.out.println("The number of actors in the film with the most actors: " + maxActors);
 
         // The title of the film with the most actors
-        // TODO Opgave
+        System.out.println("");
+        System.out.println("Opgave 5");
+        Movie movieWithMostActors = movieList.stream()
+                .reduce((movie1, movie2) -> movie1.getActors().size() > movie2.getActors().size() ? movie1 : movie2)
+                .orElse(null);
+
+        if (movieWithMostActors != null) {
+            System.out.println("The title of the film with the most actors: " + movieWithMostActors.getTitle());
+        } else {
+            System.out.println("No movies found");
+        }
 
         //Number of films divided by first letter in the film title
         // TODO Opgave
+        System.out.println("");
+        System.out.println("Opgave 6");
+        Map<Character, Long> moviesByFirstLetter = movieList.stream()
+                .collect(Collectors.groupingBy(movie -> movie.getTitle().charAt(0), Collectors.counting()));
+
+        moviesByFirstLetter.forEach((letter, count2) -> System.out.println("Letter: " + letter + ", Number of movies: " + count2));
 
         // Number of movies whose title starts with "The "
-        // TODO Opgave
+        System.out.println("");
+        System.out.println("Opgave 7");
+        System.out.println("Number of movies that start with 'The '");
+        System.out.println("Movies that starts with 'The ': " + movieList.stream().filter(e -> e.getTitle().startsWith("The")).count());
 
 
 //
