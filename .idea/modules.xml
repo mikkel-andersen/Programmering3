@@ -11,8 +11,10 @@
       <module fileurl="file://$PROJECT_DIR$/L07 - Graphs 1/L07 - Graphs 1.iml" filepath="$PROJECT_DIR$/L07 - Graphs 1/L07 - Graphs 1.iml" />
       <module fileurl="file://$PROJECT_DIR$/L08 - Dijkstra/L08 - Dijkstra.iml" filepath="$PROJECT_DIR$/L08 - Dijkstra/L08 - Dijkstra.iml" />
       <module fileurl="file://$PROJECT_DIR$/L08 - Graphs 2/L08 - Graphs 2.iml" filepath="$PROJECT_DIR$/L08 - Graphs 2/L08 - Graphs 2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/L10 - Template Method/L10 - Template Method.iml" filepath="$PROJECT_DIR$/L10 - Template Method/L10 - Template Method.iml" />
+      <module fileurl="file://$PROJECT_DIR$/L11 - TDD/L11 - TDD.iml" filepath="$PROJECT_DIR$/L11 - TDD/L11 - TDD.iml" />
       <module fileurl="file://$PROJECT_DIR$/Programmering3.iml" filepath="$PROJECT_DIR$/Programmering3.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Streams/Streams.iml" filepath="$PROJECT_DIR$/Streams/Streams.iml" />
+      <module fileurl="file://$PROJECT_DIR$/L09 - Streams/Streams.iml" filepath="$PROJECT_DIR$/L09 - Streams/Streams.iml" />
     </modules>
   </component>
 </project>

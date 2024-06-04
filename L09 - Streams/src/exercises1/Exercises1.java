@@ -8,11 +8,14 @@ public class Exercises1 {
     public static void main(String[] args) {
         // Liste med tal mellem 1 - 50
         List<Integer> list = List.of(1,2,3,2,1,6,3,4,5,2,3,8,8,9,34,32);
-        list.stream().forEach(e-> System.out.println(e+1));
+        list.stream().forEach(e-> System.out.print(e+1 + " "));
+        System.out.println();
 
         //	Udskriver det største element i listen
         System.out.print("Maximum is: ");
-        list.stream().max(Integer::compareTo).ifPresent(System.out::println);
+        int max = list.stream().max(Integer::compareTo).get();
+        System.out.println("Max: " + max);
+
 
         //	Afgør og udskriver om alle tallene i listen er mindre end 50
         System.out.print("All values are under 50: ");
@@ -38,6 +41,7 @@ public class Exercises1 {
 
         //	Udskriver antallet af gange de forskellige tal forekommer i listen
         Map<Integer, Long> map = list.stream().collect(Collectors.groupingBy(e -> e, Collectors.counting()));
+
         System.out.println(map);
 
         //	Udskriver antallet af gange de forskellige tal forekommer i listen i sorteret orden
